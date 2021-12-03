@@ -18,5 +18,6 @@ SELECT
     ,Amount         = SUM(Amount)
     ,SubTotalFlag   = GROUPING([Category])
     ,GrandTotalFlag = GROUPING([Month])
+    ,GruopingID = GROUPING_ID([Month],[Category]) -- case when GruopingID = 1 then total, =3 grandtotal...
 FROM [SampleData]
 GROUP BY ROLLUP([Month],[Category]);
